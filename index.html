@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GESTION DE INVENTARIOS</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<!-- Contenedor header y navbar -->
+<div class="header-nav-container">
+    <header class="header-container">
+        <img src="assets/img/logo.png" alt="Logo del Proyecto" class="logo">
+        <p class="header-text">SISTEMA DE GESTION DE INVENTARIOS</p>
+    </header>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav class="nav-container">
+        <ul>
+            <li><a href="#" onclick="cargarPagina('pages/inicio.html')">Inicio</a></li>
+            <li><a href="#" onclick="cargarPagina('pages/analisis.html')">Análisis</a></li>
+            <li><a href="#" onclick="cargarPagina('pages/diagrama.html')">Diagrama</a></li>
+            <li><a href="#" onclick="cargarPagina('pages/marcoTeo.html')">Marco Teórico</a></li>
+            <li><a href="#" onclick="cargarPagina('pages/video.html')">Video</a></li>
+        </ul>
+    </nav>
+</div>
+
+
+    <!-- Contenedor principal para el contenido -->
+    <div id="contenido"></div>
+
+    <!-- Contenedor footer -->
+    <div id="footer"></div>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Cargar el header, navbar y footer al inicio
+        document.addEventListener("DOMContentLoaded", () => {
+            cargarPagina('pages/inicio.html'); // Cargar la página de inicio
+
+            // Cargar el footer de forma dinámica
+            fetch('components/footer.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('footer').innerHTML = data)
+                .catch(error => console.error('Error al cargar el footer:', error));
+        });
+
+        function cargarPagina(pagina) {
+            fetch(pagina)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al cargar la página');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('contenido').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('contenido').innerHTML = '<p>Error al cargar el contenido. Intenta nuevamente.</p>';
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,582 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo global */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Estilo del contenedor principal */
+#contenido {
+    padding: 2rem;
+    background-color: #ffffff;
+    min-height: 400px;
+    border-bottom: 1px solid #ffffff;
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Contenedor principal del header y navbar */
+.header-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Alinea el logo y el nombre a la izquierda, el navbar a la derecha */
+    background-color: #738C79;
+    padding: 10px;
+    position: relative;
+}
+
+/* Header */
+.header-container {
+    display: flex;
+    align-items: center;
+    color: #ddd;
+}
+
+/* Ajuste del logo */
+.logo {
+    max-height: 50px; /* Ajusta la altura del logo */
+    width: auto; /* Mantiene la proporción del logo */
+    margin-right: 10px; /* Espacio pequeño entre el logo y el texto */
+    margin-left: 20px;
+}
+
+/* Estilo del texto del header */
+.header-text {
+    margin: 0; /* Elimina márgenes del texto */
+    color: #ffffff;
+}
+
+/* Botón de menú */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #ecbe13;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Navbar */
+.nav-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-container ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-container li {
+    margin-left: 20px; /* Espacio entre los elementos de la lista */
+}
+
+.nav-container a {
+    color: #edeaea;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s;
+    white-space: nowrap; /* Evita que el texto se envuelva */
+}
+
+.nav-container a:hover {
+    background-color: #ebedecbd;
+    border-radius: 5px;
+    color: #222;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Muestra el botón de menú en pantallas pequeñas */
+    }
+
+    .nav-container {
+        display: none; /* Oculta el navbar por defecto en pantallas pequeñas */
+        flex-direction: row; /* Alinea los elementos en una fila cuando se muestra */
+        background-color: #6a6b5f52;
+        width: 100%;
+        position: absolute;
+        top: 100%; /* Posiciona el menú debajo del header */
+        left: 0;
+        z-index: 1000;
+    }
+
+    .nav-container.active {
+        display: flex; /* Muestra el navbar cuando se activa */
+    }
+
+    .nav-container ul {
+        display: flex; /* Mantiene la disposición en fila */
+        flex-direction: row; /* Alinea los elementos en una fila */
+        justify-content: space-around; /* Distribuye los elementos de manera uniforme */
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-container li {
+        margin: 0; /* Elimina el margen para mantener los elementos juntos */
+    }
+
+    .nav-container a {
+        padding: 0.5rem; /* Ajusta el padding de los enlaces */
+        font-size: 1rem;
+        display: block; /* Asegura que cada enlace se muestre como un bloque */
+        text-align: center; /* Centra el texto dentro del enlace */
+        color: #222;
+    }
+
+    .header-text {
+        font-size: 1rem; /* Reduce el tamaño de la fuente del texto */
+        overflow: hidden; /* Oculta el desbordamiento si el texto es demasiado largo */
+        text-overflow: ellipsis; /* Añade "..." si el texto se corta */
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Imágenes y videos */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem 0;
+}
+
+video {
+    width: 100%;
+    max-width: 800px;
+    display: block;
+    margin: auto;
+}
+
+/* Contenedores */
+.contenedor {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+}
+
+.contenedor-imagen,
+.contenedor-video {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+/* Botones */
+button {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #4e5e52;
+    border-radius: 10px;
+}
+
+/* Estilos específicos de secciones */
+.section {
+    padding: 2rem;
+    background-color: #eaeaea;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.section h2 {
+    color: #555;
+}
+
+/* Estilos de formularios */
+form {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"],
+textarea {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Contenedor de inicio */
+.inicio-container {
+    display: flex;
+    align-items: center; /* Alinea verticalmente la imagen y el contenido */
+    justify-content: space-between;
+    gap: 5px; /* Espacio entre la imagen y el contenido */
+    padding: 1px;
+    background-color: #ffffff;
+}
+
+/* Sección de la imagen */
+.inicio-imagen {
+    flex: -10; /* Ocupa un espacio proporcional a la izquierda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicio-full-image {
+    max-width: 100%; /* Asegura que la imagen no sobresalga */
+    height: auto;
+    object-fit: cover; /* Ajusta la imagen */
+}
+
+/* Sección del contenido */
+.inicio-contenido {
+    flex: 1; /* Ocupa un espacio proporcional a la derecha */
+    padding: 1rem;
+}
+
+
+
+.main_back {
+    position: absolute;
+    border-radius: 10px;
+    transform: rotate(90deg);
+    width: 11em;
+    height: 11em;
+    background: linear-gradient(270deg, #03a9f4, #cc39a4, #ffb5d2);
+    z-index: -2;
+    box-shadow: inset 0px 0px 180px 5px #ffffff;
+  }
+  
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    width: 14em;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+  }
+  
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-top-left-radius: 10px;
+    background: lightgrey;
+    transition: 0.4s ease-in-out, 0.2s background-color ease-in-out,
+      0.2s background-image ease-in-out;
+    background: rgba(255, 255, 255, 0.596);
+    backdrop-filter: blur(5px);
+    border: 1px solid transparent;
+    -webkit-backdrop-filter: blur(5px);
+  }
+  
+  .card .instagram {
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+    fill: #cc39a4;
+  }
+  
+  .card:nth-child(2) {
+    border-radius: 0px;
+  }
+  
+  .card:nth-child(2) .twitter {
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+    fill: #03a9f4;
+  }
+  
+  .card:nth-child(3) {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 0px;
+  }
+  
+  .card:nth-child(3) .dribble {
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+    fill: #ffb5d2;
+  }
+  
+  .card:nth-child(4) {
+    border-radius: 0px;
+  }
+  
+  .card:nth-child(4) .codepen {
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+    fill: black;
+  }
+  
+  .card:nth-child(5) {
+    border-radius: 0px;
+  }
+  
+  .card:nth-child(5) .uiverse {
+    position: absolute;
+    margin-left: 0.2em;
+    margin-top: 0.2em;
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .card:nth-child(6) {
+    border-radius: 0px;
+  }
+  
+  .card:nth-child(6) .discord {
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+    fill: #8c9eff;
+  }
+  
+  .card:nth-child(7) {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 0px;
+  }
+  
+  .card:nth-child(7) .github {
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+    fill: black;
+  }
+  
+  .card:nth-child(8) {
+    border-radius: 0px;
+  }
+  
+  .card:nth-child(8) .telegram {
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+    fill: #29b6f6;
+  }
+  
+  .card:nth-child(9) {
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0px;
+  }
+  
+  .card:nth-child(9) .reddit {
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .main:hover {
+    width: 14em;
+    cursor: pointer;
+  }
+  
+  .main:hover .main_back {
+    opacity: 0;
+  }
+  
+  .main:hover .card {
+    margin: 0.2em;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .main:hover .card:nth-child(5) {
+    border: transparent;
+  }
+  
+  .main:hover .text {
+    opacity: 0;
+    z-index: -3;
+  }
+  
+  .main:hover .instagram {
+    opacity: 1;
+  }
+  
+  .main:hover .twitter {
+    opacity: 1;
+  }
+  
+  .main:hover .dribble {
+    opacity: 1;
+  }
+  
+  .main:hover .codepen {
+    opacity: 1;
+  }
+  
+  .main:hover .uiverse {
+    opacity: 1;
+  }
+  
+  .main:hover .discord {
+    opacity: 1;
+  }
+  
+  .main:hover .github {
+    opacity: 1;
+  }
+  
+  .main:hover .telegram {
+    opacity: 1;
+  }
+  
+  .main:hover .reddit {
+    opacity: 1;
+  }
+  
+  .card:nth-child(1):hover {
+    background-color: #cc39a4;
+  }
+  
+  .card:nth-child(1):hover .instagram {
+    fill: white;
+  }
+  
+  .card:nth-child(2):hover {
+    background-color: #03a9f4;
+  }
+  
+  .card:nth-child(2):hover .twitter {
+    fill: white;
+  }
+  
+  .card:nth-child(3):hover {
+    background-color: #ffb5d2;
+  }
+  
+  .card:nth-child(3):hover .dribble {
+    fill: white;
+  }
+  
+  .card:nth-child(4):hover {
+    background-color: #1e1f26;
+  }
+  
+  .card:nth-child(4):hover .codepen {
+    fill: white;
+  }
+  
+  .card:nth-child(5):hover {
+    animation: backgroundIMG 0.1s;
+    animation-fill-mode: forwards;
+  }
+  
+  .card:nth-child(5):hover .uiverse #paint0_linear_501_142 stop {
+    stop-color: white;
+  }
+  
+  .card:nth-child(5):hover .uiverse #paint1_linear_501_142 stop {
+    stop-color: white;
+  }
+  
+  .card:nth-child(5):hover .uiverse #paint2_linear_501_142 stop {
+    stop-color: white;
+  }
+  
+  @keyframes backgroundIMG {
+    100% {
+      background-image: linear-gradient(#bf66ff, #6248ff, #00ddeb);
+    }
+  }
+  
+  .card:nth-child(6):hover {
+    background-color: #8c9eff;
+  }
+  
+  .card:nth-child(6):hover .discord {
+    fill: white;
+  }
+  
+  .card:nth-child(7):hover {
+    background-color: black;
+  }
+  
+  .card:nth-child(7):hover .github {
+    fill: white;
+  }
+  
+  .card:nth-child(8):hover {
+    background-color: #29b6f6;
+  }
+  
+  .card:nth-child(8):hover .telegram > path:nth-of-type(1) {
+    fill: white;
+  }
+  
+  .card:nth-child(8):hover .telegram > path:nth-of-type(2) {
+    fill: #29b6f6;
+  }
+  
+  .card:nth-child(8):hover .telegram > path:nth-of-type(3) {
+    fill: #29b6f6;
+  }
+  
+  .card:nth-child(9):hover {
+    background-color: rgb(255, 69, 0);
+  }
+  
+  .card:nth-child(9) .reddit > g circle {
+    fill: rgb(255, 69, 0);
+  }
+  
+  .card:nth-child(9) .reddit > g path {
+    fill: white;
+  }
+  
+  .text {
+    position: absolute;
+    font-size: 0.7em;
+    transition: 0.4s ease-in-out;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.33em;
+    z-index: 3;
+  }
