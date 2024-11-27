@@ -1,0 +1,28 @@
+/* Header */
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.23rem;
+    margin-bottom: -15px;
+    position: relative;
+    height: 95px; /* Ajusta la altura según tus necesidades */
+    overflow: hidden; /* Evitar que las burbujas salgan del contenedor */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+.header-title {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+}

@@ -3,64 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GESTION DE INVENTARIOS</title>
+    <title>GESTIÓN DE INVENTARIOS</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/inicio.css">
+    <link rel="stylesheet" href="assets/css/header.css">
 </head>
 <body>
-<!-- Contenedor header y navbar -->
-<div class="header-nav-container">
-    <header class="header-container">
-        <img src="assets/img/logo.png" alt="Logo del Proyecto" class="logo">
-        <p class="header-text">SISTEMA DE GESTION DE INVENTARIOS</p>
-    </header>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <nav class="nav-container">
-        <ul>
-            <li><a href="#" onclick="cargarPagina('pages/inicio.html')">Inicio</a></li>
-            <li><a href="#" onclick="cargarPagina('pages/analisis.html')">Análisis</a></li>
-            <li><a href="#" onclick="cargarPagina('pages/diagrama.html')">Diagrama</a></li>
-            <li><a href="#" onclick="cargarPagina('pages/marcoTeo.html')">Marco Teórico</a></li>
-            <li><a href="#" onclick="cargarPagina('pages/video.html')">Video</a></li>
-        </ul>
-    </nav>
-</div>
-
-
-    <!-- Contenedor principal para el contenido -->
-    <div id="contenido"></div>
-
-    <!-- Contenedor footer -->
-    <div id="footer"></div>
-
-    <script src="assets/js/script.js"></script>
-    <script>
-        // Cargar el header, navbar y footer al inicio
-        document.addEventListener("DOMContentLoaded", () => {
-            cargarPagina('pages/inicio.html'); // Cargar la página de inicio
-
-            // Cargar el footer de forma dinámica
-            fetch('components/footer.html')
-                .then(response => response.text())
-                .then(data => document.getElementById('footer').innerHTML = data)
-                .catch(error => console.error('Error al cargar el footer:', error));
-        });
-
-        function cargarPagina(pagina) {
-            fetch(pagina)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Error al cargar la página');
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById('contenido').innerHTML = data;
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    document.getElementById('contenido').innerHTML = '<p>Error al cargar el contenido. Intenta nuevamente.</p>';
-                });
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #d79c44, #c5c5c4);
+            font-family: Arial, sans-serif;
         }
-    </script>
+    </style>
+        
+    <!-- Header -->
+    <header class="header-container">
+        <div class="logo-container">
+            <img src="assets/img/logo.png" alt="Logo del Proyecto" class="logo">
+            <h1 class="header-title">SISTEMA DE GESTIÓN DE INVENTARIOS</h1>
+        </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar sticky-navbar">
+        <ul>
+            <li data-page="pages/inicio.html">
+                <svg viewBox="0 0 24 24">
+                    <path fill="#000000" d="M12 5.69L17 10.19V18H15V12H9V18H7V10.19L12 5.69M12 3L2 12H5V20H11V14H13V20H19V12H22L12 3Z" />
+                </svg>
+                <span class="label">Inicio</span>
+                <span class="background"></span>
+            </li>
+
+            <li data-page="pages/analisis.html">
+                <svg viewBox="0 0 24 24">
+                    <path fill="#000000" d="M13,7.5H18V9.5H13V7.5M13,14.5H18V16.5H13V14.5M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M19,19V5H5V19H19M11,6V11H6V6H11M10,10V7H7V10H10M11,13V18H6V13H11M10,17V14H7V17H10Z" />
+                </svg>
+                <span class="label">AE</span>
+                <span class="background"></span>
+            </li>
+
+            <li data-page="pages/diagrama.html">
+                <svg viewBox="0 0 24 24">
+                    <path fill="#000000" d="M16,17H7V10.5C7,8 9,6 11.5,6C14,6 16,8 16,10.5M18,16V10.5C18,7.43 15.86,4.86 13,4.18V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V4.18C7.13,4.86 5,7.43 5,10.5V16L3,18V19H20V18M11.5,22A2,2 0 0,0 13.5,20H9.5A2,2 0 0,0 11.5,22Z" />
+                </svg>
+                <span class="label">OO</span>
+                <span class="background"></span>
+            </li>
+
+            <li data-page="pages/marcoTeo.html">
+                <svg viewBox="0 0 24 24">
+                    <path fill="#000000" d="M4,6H2V20A2,2 0 0,0 4,22H18V20H4V6M20,2A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H8A2,2 0 0,1 6,16V4A2,2 0 0,1 8,2H20M17,7A3,3 0 0,0 14,4A3,3 0 0,0 11,7A3,3 0 0,0 14,10A3,3 0 0,0 17,7M8,15V16H20V15C20,13 16,11.9 14,11.9C12,11.9 8,13 8,15Z" />
+                </svg>
+                <span class="label">Marco Teórico</span>
+                <span class="background"></span>
+            </li>
+
+            <li data-page="pages/video.html">
+                <svg viewBox="0 0 24 24">
+                    <path fill="#000000" d="M10,16L15,12L10,8V16M20,2A2,2 0 0,1 22,4V20A2,2 0 0,1 20,22H4A2,2 0 0,1 2,20V4A2,2 0 0,1 4,2H20Z" />
+                </svg>
+                <span class="label">Video</span>
+                <span class="background"></span>
+            </li>
+        </ul>
+        <div class="bg"></div>
+    </nav>
+
+    <!-- Contenido dinámico -->
+    <div 
+        id="contenido">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Gestión de Inventarios</p>
+    </footer>
+
+    <script src="https://unpkg.com/flipping@latest/dist/flipping.web.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

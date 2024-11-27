@@ -1,0 +1,150 @@
+/* Reset básico */
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Variables CSS */
+:root {
+    --color-primary: #e76513;
+    --duration: 0.3s;
+    --easing: cubic-bezier(0.5, 0, 0.5, 1);
+    --navbar-size: 24px;
+    --navbar-spacing: 1.2rem;
+}
+
+/* Navbar */
+.navbar {
+    padding: var(--navbar-spacing);
+    position: sticky;
+    background-color: rgba(255, 255, 255, 0.77);
+    box-shadow: 0 2px 4px rgb(234, 67, 6);
+}
+
+/* Lista de navegación */
+.navbar ul {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--navbar-spacing);
+}
+
+/* Elementos de navegación */
+.navbar li {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 1.5rem;
+    padding: 0.5rem 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--duration) var(--easing);
+}
+
+/* Fondo para elementos activos */
+.navbar li .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-primary);
+    border-radius: 1.5rem;
+    transform: scale(0);
+    opacity: 0;
+    z-index: -1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Íconos (SVG) */
+.navbar li svg {
+    width: var(--navbar-size);
+    height: var(--navbar-size);
+    opacity: 1;
+    transition: opacity var(--duration);
+}
+
+/* Etiqueta del elemento */
+.navbar li .label {
+    margin-left: 0.5rem;
+    font-size: 0.9em;
+    opacity: 0.8;
+    transition: opacity var(--duration);
+}
+
+/* Estado activo: Mostrar fondo amarillo */
+.navbar li[data-active] .background {
+    transform: scale(1);
+    opacity: 2;
+}
+
+/* Hover */
+.navbar li:hover {
+    transform: scale(1.1); /* Aumenta el tamaño al pasar el cursor */
+    border-radius: 1rem;
+    color: var(--color-primary); /* Cambia el color del texto al color primario */
+    font-size: 15px;
+    transition: color var(--duration), transform var(--duration); /* Suaviza el cambio de color */
+}
+
+.navbar li:hover .background {
+    opacity: 9;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: row;
+        gap: 1.2rem;
+    }
+}
+
+
+/* Sticky Navbar */
+.sticky-navbar {
+    position: relative;
+    top: -3;
+    z-index: 1000;
+    background-color: #d2996a00;
+    box-shadow: 0 4px 6px rgba(177, 141, 93, 0.325);
+    padding: 0.5rem 1rem;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.navbar li {
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.navbar li:hover {
+    background-color: #ffffff1d;
+    border-radius: 1rem;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+}
+
+.navbar li svg {
+    margin-right: 0.5rem;
+}
+
+/* Cambiar el color de los íconos al hacer hover */
+.navbar li:hover svg {
+    fill: var(--color-primary); /* Cambia al color primario */
+    opacity: 1; /* Asegura que sea completamente visible */
+    transition: fill var(--duration), opacity var(--duration); /* Suaviza el cambio */
+}
+

@@ -1,0 +1,110 @@
+
+.text-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.text-container h1 {
+    margin: 0;
+    font-size: 5rem;
+    color: rgba(225, 225, 225, 0.1);
+    background-image: url("https://images.unsplash.com/photo-1499195333224-3ce974eecb47?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2cf549433129d4227d1879347b9e78ce&auto=format&fit=crop&w=1248&q=80");
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: animate 15s ease-in-out infinite;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+@keyframes animate {
+    0%, 100% {
+        background-position: left top;
+    }
+    25% {
+        background-position: right bottom;
+    }
+    50% {
+        background-position: left bottom;
+    }
+    75% {
+        background-position: right top;
+    }
+}
+
+/* Contenido adicional */
+.contenido-Inicial {
+    font-size: 1.2rem;
+    color: rgb(44, 40, 40);
+    line-height: 1.5;
+    max-width: 800px; /* Ancho máximo del texto */
+    margin: 0 auto;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .text-container h1 {
+        font-size: 3rem; /* Reducir el tamaño del texto en pantallas pequeñas */
+    }
+
+    .contenido-Inicial {
+        font-size: 1rem; /* Reducir el tamaño del contenido adicional */
+    }
+}
+
+@media (max-width: 480px) {
+    .text-container h1 {
+        font-size: 2rem; /* Aún más pequeño en pantallas muy pequeñas */
+    }
+
+    .contenido-Inicial {
+        font-size: 0.9rem; /* Ajuste adicional para contenido adicional */
+    }
+}
+
+
+.inicio-contenido {
+    display: flex; /* Organiza el contenido en columnas */
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Espaciado entre las columnas */
+}
+
+/* Sección izquierda */
+.inicio-contenido .left-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 20px;
+}
+
+/* Sección derecha */
+.inicio-contenido .right-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicio-contenido .welcome-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+@keyframes wipe-in-bottom-left {
+    from {
+      clip-path: polygon(50% -50%, 150% 50%, 150% 50%, 50% -50%);
+    }
+    to {
+      clip-path: polygon(50% -50%, 150% 50%, 50% 150%, -50% 50%);
+    }
+  }
+  
