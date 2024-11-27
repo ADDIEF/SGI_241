@@ -6,15 +6,76 @@ html, body {
   flex-direction: column; /* Organiza en columna: header, contenido, footer */
 }
 
-p{
-  color: white;
+/*-----------------diseños-------------------------------------*/
+
+/* Encabezados */
+h1 {
+    text-align: center;
+    color: #a7660b;
+    margin-top: 20px;
+    margin-bottom: 1rem;
 }
-li{
-  color: #3f3f3d;
+
+h2 {
+    margin-bottom: 1rem;
+    color: #d4871a;
 }
-li strong{
-  color: #e3dacd;
+
+h3 {
+    margin-bottom: 1rem;
+    color: #4e5e52;
 }
+
+h4 {
+    margin-bottom: 1rem;
+    color: rgb(194, 121, 10);
+}
+
+h5 {
+    margin-bottom: 1rem;
+    color: blueviolet;
+}
+
+h6 {
+    margin-bottom: 1rem;
+    color: burlywood;
+}
+
+/* Estilos para las secciones */
+section {
+    background-color: rgba(255, 255, 255, 0.305);
+    backdrop-filter: blur(15px);
+    margin: 40px auto;
+    padding: 60px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+section h2 {
+    color: #d4871a;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+section p {
+    color: white;
+    margin-bottom: 15px;
+}
+section ul{
+  padding-left: 45px;
+  color: rgb(255, 255, 255);
+}
+section li{
+  padding: 5px;
+}
+
+strong{
+  color: #a7660b;
+}
+
+/*------------------------------------------------------------------*/
 
 #contenido {
   flex: 1;
@@ -85,22 +146,6 @@ h6{
 footer p {
     margin: 0;
 }
-
-/* Imágenes y videos */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 1rem 0;
-}
-
-video {
-    width: 100%;
-    max-width: 800px;
-    display: block;
-    margin: auto;
-}
-
 
   /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
