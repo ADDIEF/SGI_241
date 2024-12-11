@@ -1,3 +1,10 @@
+// Inicializar Flipping.js con easing personalizado
+const flipping = new Flipping({
+  easing: 'cubic-bezier(.5, 0, .5, 1)'
+});
+
+
+//---------------------------------------------------------------------------------------
 // Seleccionar el elemento de navegación
 const elNav = document.querySelector('nav');
 
@@ -6,11 +13,6 @@ const elLinks = Array.from(elNav.querySelectorAll("ul li"));
 
 // Configurar la propiedad CSS personalizada para la cantidad total de elementos
 elNav.style.setProperty('--total', elLinks.length);
-
-// Inicializar Flipping.js con easing personalizado
-const flipping = new Flipping({
-    easing: 'cubic-bezier(.5, 0, .5, 1)'
-});
 
 // Agregar un evento 'click' a cada elemento de la lista de navegación
 elLinks.forEach((elLink, i) => {
@@ -36,26 +38,31 @@ elLinks.forEach((elLink, i) => {
 elLinks[0].dataset.active = true;
 elNav.style.setProperty('--active', 0);
 
+
 // Función para cargar contenido dinámico
 function cargarPagina(pagina) {
-    fetch(pagina)
-        .then(response => {
-            if (!response.ok) throw new Error('Error al cargar la página');
-            return response.text();
-        })
-        .then(data => {
-            document.getElementById('contenido').innerHTML = data;
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            document.getElementById('contenido').innerHTML = '<p>Error al cargar el contenido.</p>';
-        });
+      fetch(pagina)
+          .then(response => {
+              if (!response.ok) throw new Error('Error al cargar la página');
+              return response.text();
+          })
+          .then(data => {
+              document.getElementById('contenido').innerHTML = data;
+          })
+          .catch(error => {
+              console.error('Error:', error);
+              document.getElementById('contenido').innerHTML = '<p>Error al cargar el contenido.</p>';
+          });
 }
+
+
 
 // Cargar automáticamente la página de inicio al cargar la página principal
 document.addEventListener('DOMContentLoaded', () => {
     cargarPagina('pages/inicio.html');
 });
+
+//-----------------------------------------------------------------------------------------------------------------
 
 
 /*ANIMACION DE LA PAGINA*/ 

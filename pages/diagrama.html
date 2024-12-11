@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Contenido de la página -->
+    <main>
+        <section class="content-section">
+            <h1>DIAGRAMA ORIENTADO A OBJETOS</h1>
+        </section>
+    </main>
+
+    <section>
+        <h2>Introducción al Modelo Orientado a Objetos de nuestro Sistema</h2>
+        <p>
+            Este es el diseño de nuestro sistema de gestión de inventarios para el supermercado, representado con un modelo orientado a objetos. 
+            Este modelo actúa como un mapa que nos permite entender cómo las diferentes partes del sistema (llamadas objetos) trabajan juntas de manera organizada. 
+            Es una herramienta fundamental para garantizar que el sistema sea claro, funcional y eficiente, tanto para los desarrolladores como para los usuarios finales.
+        </p>
+        <p>
+            A través de este modelo, hemos identificado los elementos clave del sistema, cómo se relacionan entre sí y qué acciones realizan. 
+            Esto nos asegura que cada componente tenga un propósito claro y que todas las funciones del sistema estén correctamente conectadas.
+        </p>
+    </section>
+
+    <section>
+        <h2>¿Cómo Interpretar el Modelo?</h2>
+        <p>
+            El modelo orientado a objetos se basa en clases (representadas por las cajas), que contienen atributos (datos) y métodos (acciones). 
+            Además, las relaciones entre las clases se muestran con líneas y flechas que representan cómo se conectan y trabajan juntas.
+        </p>
+        <ul>
+            <li><strong>Cajas (Clases):</strong> Representan los elementos principales del sistema, como Producto, Cliente o Inventario.</li>
+            <li><strong>Atributos:</strong> Son los datos que almacena cada clase. Por ejemplo, un Producto tiene atributos como nombre, precio y categoría.</li>
+            <li><strong>Métodos:</strong> Son las acciones que puede realizar cada clase. Por ejemplo, consultar_stock() en la clase Inventario verifica cuántos productos están disponibles.</li>
+            <li><strong>Relaciones:</strong> Las líneas y flechas indican cómo las clases interactúan entre sí. Por ejemplo, un Pedido se conecta a un Cliente porque cada pedido pertenece a un cliente específico.</li>
+        </ul>
+    </section>
+
+
+    <section>
+        <h2>Cómo Leer las Relaciones</h2>
+        <ul>
+            <li><strong>Líneas con números:</strong> Muestran cuántos elementos se relacionan. Por ejemplo:
+                <ul>
+                    <li><strong>Pedido -> Producto:</strong> (1..*) significa que un pedido incluye uno o varios productos.</li>
+                    <li><strong>Cliente -> Pedido:</strong> (0..*) indica que un cliente puede tener ningún pedido o varios.</li>
+                </ul>
+            </li>
+            <li><strong>Flechas con triángulos (Herencia):</strong> Muestran que una clase hereda características de otra. Por ejemplo:
+                <ul>
+                    <li><strong>Pago</strong> es la clase principal, y <strong>Pago Tarjeta</strong>, <strong>Pago Efectivo</strong> y <strong>Pago Cheque</strong> heredan de ella porque comparten funciones básicas como procesar_pago().</li>
+                </ul>
+            </li>
+            <li><strong>Conectores (Asociaciones):</strong> Muestran cómo las clases interactúan. Ejemplo:
+                <ul>
+                    <li><strong>Pedido</strong> está relacionado con <strong>Factura</strong>, porque cada pedido genera una factura al completarse.</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Ejemplo Práctico de Cómo Funciona</h2>
+        <p>
+            Escenario: Un Cliente Compra Productos.
+        </p>
+        <ul>
+            <li>El cliente realiza una compra seleccionando productos. Esto genera un Pedido.</li>
+            <li>El Pedido se conecta a los Productos comprados, reduciendo automáticamente la cantidad disponible en el Inventario.</li>
+            <li>El sistema genera una Factura asociada al cliente y registra el Pago con el método seleccionado (tarjeta, efectivo o cheque).</li>
+            <li>Finalmente, el administrador puede revisar el estado del Stock para planificar reposiciones si es necesario.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Beneficios del Modelo</h2>
+        <ul>
+            <li><strong>Claridad y Organización:</strong> Cada parte del sistema tiene un propósito claro y está conectada de forma lógica.</li>
+            <li><strong>Facilidad de Mantenimiento:</strong> Si es necesario agregar nuevas funciones, como un método de pago adicional, el modelo permite hacerlo sin afectar otras partes.</li>
+            <li><strong>Flexibilidad:</strong> El diseño modular facilita adaptarse a cambios en las necesidades del supermercado.</li>
+            <li><strong>Eficiencia:</strong> El flujo definido asegura que las tareas, como registrar ventas o actualizar inventarios, se realicen sin errores.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Conclusión</h2>
+        <p>
+            Con este modelo, hemos creado una base sólida para desarrollar un sistema eficiente y organizado, que optimiza las operaciones del supermercado y ofrece una experiencia fluida para todos los usuarios. 
+            ¡Es la estructura perfecta para garantizar el éxito del proyecto! 🚀
+        </p>
+    </section>
+
+
+    <div class="image-container">
+        <img src="assets/img/MODELO_ORIENTADO_A_OBJETOS.png" alt="Diagrama del sistema" class="diagram-image">
+    </div>
+
+
+</body>
+</html>
